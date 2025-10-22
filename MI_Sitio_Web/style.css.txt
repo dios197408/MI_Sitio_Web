@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingenios Del Rey 👑 | Sabiduría para tu Vida</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Estilos Globales y Variables --- */
+        :root {
+            --primary-color: #1a2a4c; /* Azul noche profunda */
+            --secondary-color: #d4af37; /* Dorado real */
+            --background-color: #f4f7f6; /* Gris muy claro, suave */
+            --text-color: #333;
+            --light-color: #ffffff;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            margin: 0;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; text-align: center; margin-bottom: 40px; }
+        h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        h4 { font-size: 1.2rem; color: var(--primary-color); }
+
+        .section {
+            padding: 70px 0;
+        }
+
+        .section-bg {
+            background-color: var(--background-color);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- Layouts de Grid --- */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        /* --- Header --- */
+        .header {
+            background: rgba(26, 42, 76, 0.95);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-family: var(--font-heading);
+        }
+
+        .nav a {
+            color: var(--light-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(26, 42, 76, 0.6), rgba(26, 42, 76, 0.8)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            height: 100vh;
+            color: var(--light-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            color: var(--light-color);
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--secondary-color);
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* --- Botones --- */
+        .btn, .btn-secondary {
+            display: inline-block;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-heading);
+        }
+
+        .btn {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .btn:hover {
+            background: #b8941f;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--light-color);
+        }
+
+        /* --- Cards --- */
+        .card {
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .card h3 {
+            color: var(--secondary-color);
+        }
+
+        /* --- Participation Cards --- */
+        .participation-card {
+            background: var(--primary-color);
+            color: var(--light-color);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .participation-card h3 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+        }
+
+        .participation-card p {
+            margin-bottom: 25px;
+        }
+
+        /* --- Reflections --- */
+        .reflection-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--secondary-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* --- Downloads --- */
+        .downloads-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .download-item {
+            display: flex;
+            align-items: center;
+            background: var(--light-color);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-color);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .download-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .download-item .icon {
+            font-size: 2rem;
+            margin-right: 20px;
+        }
+
+        .download-item h4 {
+            margin: 0;
+        }
+
+        .download-item p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background: var(--primary-color);
+            color: var(--light-color);
+            padding: 40px 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">Ingenios Del Rey 👑</a>
+            <nav class="nav">
+                <a href="#estudios">Estudios</a>
+                <a href="#reflexiones">Reflexiones</a>
+                <a href="#participar">Participar</a>
+                <a href="#recursos">Recursos</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Ingenios Del Rey 👑</h1>
+                <p class="tagline">Conectando la Sabiduría de Dios con tu Vida Diaria.</p>
+                <a href="#estudios" class="btn">Explorar la Sabiduría</a>
+            </div>
+        </section>
+
+        <section id="mision" class="section">
+            <div class="container text-center">
+                <h2>Nuestra Misión</h2>
+                <p>Somos un faro de conocimiento dedicado a la sabiduría y el profundo entendimiento que proviene del Espíritu Santo. Aquí, encontrarás guía para iluminar tu camino y fortalecer tu espíritu cada día. 😇</p>
+            </div>
+        </section>
+
+        <section id="estudios" class="section section-bg">
+            <div class="container">
+                <h2>Estudios Bíblicos Profundos</h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>Los Frutos del Espíritu</h3>
+                        <p>Un estudio detallado sobre cómo cultivar amor, gozo, paz y los demás frutos en tu vida.</p>
+                        <a href="#" class="btn-secondary">Leer Más</a>
+                    </div>
+                    <div class="card">
+                        <h3>Viviendo en la Fe</h3>
+                        <p>Reflexiones sobre los personajes de Hebreos 11 y cómo su fe nos inspira hoy.</p>
+                        <a href="#" class="btn-secondary">Leer Más</a>
+                    </div>
+                    <div class="card">
+                        <h3>El Poder de la Oración</h3>
+                        <p>Aprende a orar con efectividad y a escuchar la voz de Dios en tu corazón.</p>
+                        <a href="#" class="btn-secondary">Leer Más</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reflexiones" class="section">
+            <div class="container">
+                <h2>Reflexiones para la Vida Diaria</h2>
+                <div class="reflection-container">
+                    <div class="reflection-item">
+                        <h4>Reflexión del Día: La Paz que Sobrepasa Entendimiento</h4>
+                        <p>En medio de la tormenta, Dios ofrece una paz que no depende de las circunstancias, sino de Su presencia. Hoy, detente un momento y respira esa paz divina...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="participar" class="section section-bg">
+            <div class="container">
+                <h2>Únete a la Conversación</h2>
+                <div class="grid-2">
+                    <div class="participation-card">
+                        <h3>Comparte tu Testimonio</h3>
+                        <p>¿Cómo ha obrado Dios en tu vida? Tu historia es un poderoso mensaje de esperanza para otros.</p>
+                        <a href="mailto:ingeniosdelrey@example.com?subject=Testimonio para la Web" class="btn">Enviar Testimonio</a>
+                    </div>
+                    <div class="participation-card">
+                        <h3>Envía tu Reflexión</h3>
+                        <p>¿Tienes una reflexión o un versículo que ha impactado tu vida? Compártelo con nuestra comunidad.</p>
+                        <a href="mailto:ingeniosdelrey@example.com?subject=Reflexión para la Web" class="btn">Enviar Reflexión</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="recursos" class="section">
+            <div class="container">
+                <h2>Recursos para Descargar</h2>
+                <div class="downloads-list">
+                    <a href="#" class="download-item" download="estudio_fe.pdf">
+                        <span class="icon">📄</span>
+                        <div>
+                            <h4>Estudio: Guía de la Fe</h4>
+                            <p>PDF - 2.5 MB</p>
+                        </div>
+                    </a>
+                    <a href="#" class="download-item" download="video_oracion.mp4">
+                        <span class="icon">🎥</span>
+                        <div>
+                            <h4>Video: El Secreto de la Oración</h4>
+                            <p>MP4 - 150 MB</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="donaciones" class="section section-bg">
+            <div class="container text-center">
+                <h2>Apoya este Ministerio</h2>
+                <p>Su donación voluntaria nos ayuda a seguir creando y compartiendo contenido de calidad para bendecir a otros. Cualquier aporte es enormemente apreciado.</p>
+                <a href="https://www.paypal.com/donate/?business=dios197408@gmail.com&currency_code=USD" target="_blank" class="btn">Donar con PayPal</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Ingenios Del Rey 👑. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="https://www.tiktok.com/@ingeniosdelreydereyes" target="_blank">TikTok</a>
+                    <a href="https://youtube.com/@ingeniosdiesel4312?si=oaJ04DMKH21fmXGw" target="_blank">YouTube</a>
+                    <a href="https://www.facebook.com/share/1A2JPr8XoG/" target="_blank">Facebook</a>
+                    <a href="https://www.instagram.com/ingeniosdiesel?igsh=ZDJ4ZzhnYzJtNnVl" target="_blank">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
